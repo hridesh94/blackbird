@@ -50,6 +50,24 @@
       scroll-behavior: smooth;
     }
 
+    ::selection {
+      background: rgba(var(--honey-bronze-rgb), 0.25);
+      color: var(--obsidian);
+    }
+
+    ::-moz-selection {
+      background: rgba(var(--honey-bronze-rgb), 0.25);
+      color: var(--obsidian);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    .btn-primary:focus-visible,
+    .btn-secondary:focus-visible {
+      outline: 2px solid var(--honey-bronze);
+      outline-offset: 3px;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background: var(--obsidian);
@@ -1210,7 +1228,7 @@
       border-radius: 999px;
       background: rgba(var(--honey-bronze-rgb), 0.06);
       border: 1px solid rgba(var(--honey-bronze-rgb), 0.12);
-      color: #fff9c7;
+      color: #f4b55c;
       font-weight: 600;
       font-size: 13px;
       white-space: nowrap;
