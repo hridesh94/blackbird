@@ -27,8 +27,12 @@
       --slate: #2A313B;
       --bone: #F5F3EF;
       --mist: #D9D6D1;
-      --teal: #1FD1C2;
-      --teal-dark: #149B91;
+      --honey-bronze: #F4B55C;
+      --honey-bronze-rgb: 244, 181, 92;
+      --cream: #FDFDC6;
+      --royal-gold: #FBDC69;
+      --teal: var(--honey-bronze);
+      --teal-dark: #BF8B3D;
       --sage: #8FBF9F;
       --text-primary: #FFFFFF;
       --text-secondary: #B8BEC7;
@@ -273,7 +277,7 @@
     }
 
     .nav-toggle:hover {
-      border-color: rgba(31, 209, 194, 0.35);
+      border-color: rgba(var(--honey-bronze-rgb), 0.35);
       background: rgba(255, 255, 255, 0.04);
     }
 
@@ -321,7 +325,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 800px 600px at 70% 40%, rgba(31, 209, 194, 0.04) 0%, transparent 65%);
+      background: radial-gradient(ellipse 800px 600px at 70% 40%, rgba(var(--honey-bronze-rgb), 0.04) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -455,7 +459,7 @@
     }
 
     .wf-badge-teal {
-      background: rgba(31, 209, 194, 0.12);
+      background: rgba(var(--honey-bronze-rgb), 0.12);
       color: var(--teal);
     }
 
@@ -511,7 +515,7 @@
       height: 8px;
       border-radius: 50%;
       background: var(--teal);
-      box-shadow: 0 0 0 3px rgba(31, 209, 194, 0.15);
+      box-shadow: 0 0 0 3px rgba(var(--honey-bronze-rgb), 0.15);
     }
 
     .wf-metric-row {
@@ -622,12 +626,12 @@
 
       0%,
       100% {
-        box-shadow: 0 0 0 3px rgba(31, 209, 194, 0.14);
+        box-shadow: 0 0 0 3px rgba(var(--honey-bronze-rgb), 0.14);
         opacity: 0.9;
       }
 
       50% {
-        box-shadow: 0 0 0 8px rgba(31, 209, 194, 0.06);
+        box-shadow: 0 0 0 8px rgba(var(--honey-bronze-rgb), 0.06);
         opacity: 1;
       }
     }
@@ -722,7 +726,7 @@
     }
 
     .service-card:hover {
-      border-color: rgba(31, 209, 194, 0.3);
+      border-color: rgba(var(--honey-bronze-rgb), 0.3);
       transform: translateY(-3px);
     }
 
@@ -733,7 +737,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(31, 209, 194, 0.25), transparent);
+      background: linear-gradient(90deg, transparent, rgba(var(--honey-bronze-rgb), 0.25), transparent);
       opacity: 0;
       transition: opacity 0.3s;
     }
@@ -747,15 +751,15 @@
       position: absolute;
       inset: 0;
       border-radius: var(--radius-lg);
-      background: radial-gradient(ellipse 200px 200px at 50% 0%, rgba(31, 209, 194, 0.03), transparent);
+      background: radial-gradient(ellipse 200px 200px at 50% 0%, rgba(var(--honey-bronze-rgb), 0.03), transparent);
       pointer-events: none;
     }
 
     .service-icon {
       width: 48px;
       height: 48px;
-      background: rgba(31, 209, 194, 0.08);
-      border: 1px solid rgba(31, 209, 194, 0.15);
+      background: rgba(var(--honey-bronze-rgb), 0.08);
+      border: 1px solid rgba(var(--honey-bronze-rgb), 0.15);
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
@@ -918,7 +922,7 @@
     .step-num-active {
       background: var(--teal);
       color: var(--obsidian);
-      box-shadow: 0 0 0 8px rgba(31, 209, 194, 0.1);
+      box-shadow: 0 0 0 8px rgba(var(--honey-bronze-rgb), 0.1);
     }
 
     .step-num-inactive {
@@ -946,8 +950,8 @@
       gap: 6px;
       margin-top: 16px;
       padding: 5px 12px;
-      background: rgba(31, 209, 194, 0.06);
-      border: 1px solid rgba(31, 209, 194, 0.15);
+      background: rgba(var(--honey-bronze-rgb), 0.06);
+      border: 1px solid rgba(var(--honey-bronze-rgb), 0.15);
       border-radius: 100px;
       font-size: 12px;
       font-weight: 500;
@@ -986,7 +990,7 @@
     }
 
     .cs-card:hover {
-      border-color: rgba(31, 209, 194, 0.25);
+      border-color: rgba(var(--honey-bronze-rgb), 0.25);
       transform: translateY(-3px);
     }
 
@@ -1006,7 +1010,7 @@
       width: 100%;
       height: 100%;
       background: #11151c;
-      border: 1px solid rgba(0, 255, 220, 0.15);
+      border: 1px solid rgba(var(--honey-bronze-rgb), 0.15);
       border-radius: 24px;
       padding: 28px;
       display: flex;
@@ -1040,12 +1044,12 @@
     }
 
     .node.active {
-      border: 1px solid #1de9d6;
-      color: #1de9d6;
+      border: 1px solid var(--honey-bronze);
+      color: var(--honey-bronze);
     }
 
     .arrow {
-      color: #1de9d6;
+      color: var(--honey-bronze);
       font-size: 22px;
       line-height: 1;
     }
@@ -1067,7 +1071,7 @@
     }
 
     .browser-frame {
-      border: 1px solid rgba(0, 255, 220, 0.15);
+      border: 1px solid rgba(var(--honey-bronze-rgb), 0.15);
       border-radius: 18px;
       background: #0d131c;
       overflow: hidden;
@@ -1095,14 +1099,14 @@
       width: 42px;
       height: 6px;
       border-radius: 999px;
-      background: rgba(31, 209, 194, 0.25);
+      background: rgba(var(--honey-bronze-rgb), 0.25);
     }
 
     .browser-top::before {
       content: '';
       width: 72px;
       height: 6px;
-      background: rgba(31, 209, 194, 0.2);
+      background: rgba(var(--honey-bronze-rgb), 0.2);
       border-radius: 999px;
       position: absolute;
       left: 16px;
@@ -1125,7 +1129,7 @@
     .browser-hero {
       height: 12px;
       width: 60%;
-      background: rgba(31, 209, 194, 0.18);
+      background: rgba(var(--honey-bronze-rgb), 0.18);
       border-radius: 999px;
       margin-top: 4px;
     }
@@ -1159,7 +1163,7 @@
 
     .chart-bars span.active {
       height: 42px;
-      background: #1de9d6;
+      background: var(--honey-bronze);
     }
 
     .cs-card-body {
@@ -1204,9 +1208,9 @@
       justify-content: center;
       padding: 12px 18px;
       border-radius: 999px;
-      background: rgba(31, 209, 194, 0.06);
-      border: 1px solid rgba(31, 209, 194, 0.12);
-      color: #c7fff6;
+      background: rgba(var(--honey-bronze-rgb), 0.06);
+      border: 1px solid rgba(var(--honey-bronze-rgb), 0.12);
+      color: #fff9c7;
       font-weight: 600;
       font-size: 13px;
       white-space: nowrap;
@@ -1244,7 +1248,7 @@
       width: 600px;
       height: 600px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(31, 209, 194, 0.03), transparent 70%);
+      background: radial-gradient(circle, rgba(var(--honey-bronze-rgb), 0.03), transparent 70%);
       pointer-events: none;
     }
 
@@ -1272,7 +1276,7 @@
     }
 
     .why-card:hover {
-      border-color: rgba(31, 209, 194, 0.25);
+      border-color: rgba(var(--honey-bronze-rgb), 0.25);
     }
 
     .why-icon {
@@ -1297,8 +1301,8 @@
     .why-cta-block {
       margin-top: 48px;
       padding: 32px;
-      background: rgba(31, 209, 194, 0.05);
-      border: 1px solid rgba(31, 209, 194, 0.15);
+      background: rgba(var(--honey-bronze-rgb), 0.05);
+      border: 1px solid rgba(var(--honey-bronze-rgb), 0.15);
       border-radius: var(--radius-lg);
     }
 
@@ -1330,7 +1334,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 900px 600px at 50% 50%, rgba(31, 209, 194, 0.045) 0%, transparent 65%);
+      background: radial-gradient(ellipse 900px 600px at 50% 50%, rgba(var(--honey-bronze-rgb), 0.045) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -1360,6 +1364,15 @@
       flex-wrap: wrap;
     }
 
+    .final-cta-note {
+      margin: 16px auto 0;
+      max-width: 620px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-secondary);
+      opacity: 0.88;
+    }
+
     .final-trust {
       display: flex;
       align-items: center;
@@ -1380,7 +1393,7 @@
     .check-icon {
       width: 18px;
       height: 18px;
-      background: rgba(31, 209, 194, 0.1);
+      background: rgba(var(--honey-bronze-rgb), 0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -1491,8 +1504,8 @@
     }
 
     .faq-item.open .faq-icon {
-      background: rgba(31, 209, 194, 0.08);
-      border-color: rgba(31, 209, 194, 0.3);
+      background: rgba(var(--honey-bronze-rgb), 0.08);
+      border-color: rgba(var(--honey-bronze-rgb), 0.3);
       color: var(--teal);
       transform: rotate(45deg);
     }
@@ -1693,8 +1706,8 @@
         width: 2px;
         transform: translateX(-50%);
         background:
-          linear-gradient(180deg, rgba(31, 209, 194, 0) 0%, rgba(31, 209, 194, 0.35) 12%, rgba(31, 209, 194, 0.75) 50%, rgba(31, 209, 194, 0.35) 88%, rgba(31, 209, 194, 0) 100%),
-          repeating-linear-gradient(180deg, rgba(31, 209, 194, 0.75) 0 10px, rgba(31, 209, 194, 0) 10px 20px);
+          linear-gradient(180deg, rgba(var(--honey-bronze-rgb), 0) 0%, rgba(var(--honey-bronze-rgb), 0.35) 12%, rgba(var(--honey-bronze-rgb), 0.75) 50%, rgba(var(--honey-bronze-rgb), 0.35) 88%, rgba(var(--honey-bronze-rgb), 0) 100%),
+          repeating-linear-gradient(180deg, rgba(var(--honey-bronze-rgb), 0.75) 0 10px, rgba(var(--honey-bronze-rgb), 0) 10px 20px);
         border-radius: 999px;
         opacity: 0.7;
         animation: mobile-flow 2.4s linear infinite;
@@ -1730,7 +1743,7 @@
         border-radius: 50%;
         background: var(--teal);
         transform: translateX(-50%);
-        box-shadow: 0 0 0 3px rgba(31, 209, 194, 0.14);
+        box-shadow: 0 0 0 3px rgba(var(--honey-bronze-rgb), 0.14);
         animation: mobile-glow 1.8s ease-in-out infinite;
       }
 
@@ -1913,7 +1926,6 @@
       </ul>
 
       <div class="nav-cta">
-        <a href="#case-studies" class="btn-secondary" style="padding:11px 20px; font-size:14px;">See Client Results</a>
         <a href="https://cal.com/theblackbird" class="btn-primary" style="padding:11px 20px; font-size:14px;">Book a Call</a>
       </div>
 
@@ -1933,7 +1945,6 @@
         </ul>
 
         <div class="nav-mobile-actions">
-          <a href="#case-studies" class="btn-secondary">See Client Results</a>
           <a href="https://cal.com/theblackbird" class="btn-primary">Book a Call</a>
         </div>
       </div>
@@ -1972,7 +1983,6 @@
                   stroke-linejoin="round" />
               </svg>
             </a>
-            <a href="#case-studies" class="btn-secondary">See Client Results</a>
           </div>
 
           <div class="trust-row fade-in-4">
@@ -2014,20 +2024,20 @@
               <path d="M120 410 C260 426 260 426 400 376" stroke="#2A313B" stroke-width="1" stroke-dasharray="4 4" opacity="0" />
 
               <!-- Animated teal pulse: top → mid-right → convergence → bottom-left → outcomes (active path) -->
-              <path d="M260 96 C260 136 400 136 400 176 L400 306 C400 340 120 340 120 376 C260 426 260 426 400 376" stroke="#1FD1C2" stroke-width="1.5"
+              <path d="M260 96 C260 136 400 136 400 176 L400 306 C400 340 120 340 120 376 C260 426 260 426 400 376" stroke="var(--honey-bronze)" stroke-width="1.5"
                 stroke-dasharray="6 4" opacity="0.5">
                 <animate attributeName="stroke-dashoffset" from="400" to="0" dur="3s" repeatCount="indefinite" />
               </path>
 
               <!-- Junction dots -->
-              <circle cx="260" cy="96" r="4" fill="#1FD1C2" opacity="0.8" />
-              <circle cx="120" cy="176" r="3.5" fill="#0B0D10" stroke="#1FD1C2" stroke-width="1.5" />
-              <circle cx="400" cy="176" r="3.5" fill="#0B0D10" stroke="#1FD1C2" stroke-width="1.5" />
-              <circle cx="120" cy="306" r="3.5" fill="#0B0D10" stroke="#1FD1C2" stroke-width="1.5" />
-              <circle cx="400" cy="306" r="3.5" fill="#0B0D10" stroke="#1FD1C2" stroke-width="1.5" />
+              <circle cx="260" cy="96" r="4" fill="var(--honey-bronze)" opacity="0.8" />
+              <circle cx="120" cy="176" r="3.5" fill="#0B0D10" stroke="var(--honey-bronze)" stroke-width="1.5" />
+              <circle cx="400" cy="176" r="3.5" fill="#0B0D10" stroke="var(--honey-bronze)" stroke-width="1.5" />
+              <circle cx="120" cy="306" r="3.5" fill="#0B0D10" stroke="var(--honey-bronze)" stroke-width="1.5" />
+              <circle cx="400" cy="306" r="3.5" fill="#0B0D10" stroke="var(--honey-bronze)" stroke-width="1.5" />
               <!-- Convergence point junction dot -->
-              <circle cx="120" cy="376" r="3.5" fill="#0B0D10" stroke="#1FD1C2" stroke-width="1.5" />
-              <circle cx="400" cy="376" r="3.5" fill="#0B0D10" stroke="#1FD1C2" stroke-width="1.5" />
+              <circle cx="120" cy="376" r="3.5" fill="#0B0D10" stroke="var(--honey-bronze)" stroke-width="1.5" />
+              <circle cx="400" cy="376" r="3.5" fill="#0B0D10" stroke="var(--honey-bronze)" stroke-width="1.5" />
             </svg>
 
             <!-- ────────────────────────────
@@ -2040,7 +2050,7 @@
               <div class="wf-title">New Lead Captured</div>
               <div class="wf-status-row" style="margin-top:10px;">
                 <div class="wf-dot wf-dot-teal" style="animation:pulse 1.5s ease infinite;"></div>
-                <span style="font-size:12px;color:#1FD1C2;font-weight:500;">Active</span>
+                <span style="font-size:12px;color:var(--honey-bronze);font-weight:500;">Active</span>
                 <span class="wf-badge wf-badge-teal" style="margin-left:auto;">CRM</span>
               </div>
             </div>
@@ -2063,7 +2073,7 @@
               <div class="wf-title">Sent to the Right Team</div>
               <div style="margin-top:10px;display:flex;flex-direction:column;gap:7px;">
                 <div style="display:flex;align-items:center;gap:8px;">
-                  <div style="width:5px;height:5px;border-radius:50%;background:#1FD1C2;flex-shrink:0;"></div>
+                  <div style="width:5px;height:5px;border-radius:50%;background:var(--honey-bronze);flex-shrink:0;"></div>
                   <span style="font-size:12px;color:#B8BEC7;">High-value → Sales</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:8px;">
@@ -2186,8 +2196,8 @@
             <div class="service-visual">
               <div style="display:flex;gap:8px;">
                 <div
-                  style="flex:1;height:36px;background:rgba(31,209,194,0.08);border:1px solid rgba(31,209,194,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;">
-                  <span style="font-size:11px;color:#1FD1C2;font-weight:600;">Landing</span>
+                  style="flex:1;height:36px;background:rgba(var(--honey-bronze-rgb),0.08);border:1px solid rgba(var(--honey-bronze-rgb),0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-size:11px;color:var(--honey-bronze);font-weight:600;">Landing</span>
                 </div>
                 <div
                   style="flex:1;height:36px;background:rgba(255,255,255,0.03);border:1px solid #2A313B;border-radius:6px;display:flex;align-items:center;justify-content:center;">
@@ -2223,11 +2233,11 @@
             <div class="service-visual">
               <div style="display:flex;flex-direction:column;gap:6px;">
                 <div style="display:flex;align-items:center;gap:8px;">
-                  <div style="width:8px;height:8px;border-radius:50%;background:#1FD1C2;flex-shrink:0;"></div>
-                  <div style="flex:1;height:2px;background:linear-gradient(90deg,#1FD1C2,#2A313B);border-radius:2px;">
+                  <div style="width:8px;height:8px;border-radius:50%;background:var(--honey-bronze);flex-shrink:0;"></div>
+                  <div style="flex:1;height:2px;background:linear-gradient(90deg,var(--honey-bronze),#2A313B);border-radius:2px;">
                   </div>
                   <div
-                    style="width:8px;height:8px;border-radius:50%;background:#2A313B;flex-shrink:0;border:1px solid #1FD1C2;">
+                    style="width:8px;height:8px;border-radius:50%;background:#2A313B;flex-shrink:0;border:1px solid var(--honey-bronze);">
                   </div>
                 </div>
                 <div style="display:flex;align-items:center;gap:8px;">
@@ -2274,7 +2284,7 @@
             <p class="step-desc">We review your website, lead flow, and growth opportunities to identify what will bring the fastest results first.</p>
             <div class="step-deliverable">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <path d="M2 6l3 3 5-5" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
+                <path d="M2 6l3 3 5-5" stroke="var(--honey-bronze)" stroke-width="1.5" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
               Website &amp; Lead Audit
@@ -2289,7 +2299,7 @@
             <p class="step-desc">We plan the agreed website improvements, lead systems, and customer journey before any work begins.</p>
             <div class="step-deliverable">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <path d="M2 6l3 3 5-5" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
+                <path d="M2 6l3 3 5-5" stroke="var(--honey-bronze)" stroke-width="1.5" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
               Growth Blueprint
@@ -2304,7 +2314,7 @@
             <p class="step-desc">We implement the new website, lead systems, and integrations with regular progress updates.</p>
             <div class="step-deliverable">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <path d="M2 6l3 3 5-5" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
+                <path d="M2 6l3 3 5-5" stroke="var(--honey-bronze)" stroke-width="1.5" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
               Live System
@@ -2319,7 +2329,7 @@
             <p class="step-desc">Once live, we keep improving performance and supporting future growth opportunities.</p>
             <div class="step-deliverable">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <path d="M2 6l3 3 5-5" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
+                <path d="M2 6l3 3 5-5" stroke="var(--honey-bronze)" stroke-width="1.5" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
               Growth Roadmap
@@ -2341,7 +2351,7 @@
 
         <div class="cs-header reveal">
           <div>
-            <div class="section-badge"><span class="dot"></span>Example Systems</div>
+            <div class="section-badge"><span class="dot"></span>Systems We Build</div>
             <h2 class="h2">Systems we can build for your business</h2>
           </div>
           <a href="#final-cta" class="btn-secondary">View All Work</a>
@@ -2384,8 +2394,6 @@
                   <div class="node">Visitors</div>
                   <div class="arrow">→</div>
                   <div class="node active">Website</div>
-                  <div class="arrow">→</div>
-                  <div class="node">Enquiry</div>
                   <div class="arrow">→</div>
                   <div class="node">Booked Call</div>
                 </div>
@@ -2434,8 +2442,8 @@
 
           <div class="why-card">
             <svg class="why-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="40" rx="8" fill="rgba(31,209,194,0.06)" />
-              <path d="M12 20 L18 26 L28 14" stroke="#1FD1C2" stroke-width="2" stroke-linecap="round"
+              <rect width="40" height="40" rx="8" fill="rgba(var(--honey-bronze-rgb),0.06)" />
+              <path d="M12 20 L18 26 L28 14" stroke="var(--honey-bronze)" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
             <div class="why-card-title">Growth Strategy</div>
@@ -2444,9 +2452,9 @@
 
           <div class="why-card">
             <svg class="why-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="40" rx="8" fill="rgba(31,209,194,0.06)" />
-              <circle cx="20" cy="20" r="8" stroke="#1FD1C2" stroke-width="2" />
-              <path d="M20 12 L20 20 L26 20" stroke="#1FD1C2" stroke-width="2" stroke-linecap="round" />
+              <rect width="40" height="40" rx="8" fill="rgba(var(--honey-bronze-rgb),0.06)" />
+              <circle cx="20" cy="20" r="8" stroke="var(--honey-bronze)" stroke-width="2" />
+              <path d="M20 12 L20 20 L26 20" stroke="var(--honey-bronze)" stroke-width="2" stroke-linecap="round" />
             </svg>
             <div class="why-card-title">Precision Execution</div>
             <p class="why-card-desc">Clear timelines, weekly updates, and defined milestones so you always know what’s being built and why.</p>
@@ -2454,8 +2462,8 @@
 
           <div class="why-card">
             <svg class="why-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="40" rx="8" fill="rgba(31,209,194,0.06)" />
-              <path d="M10 30 L16 22 L22 26 L30 14" stroke="#1FD1C2" stroke-width="2" stroke-linecap="round"
+              <rect width="40" height="40" rx="8" fill="rgba(var(--honey-bronze-rgb),0.06)" />
+              <path d="M10 30 L16 22 L22 26 L30 14" stroke="var(--honey-bronze)" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
             <div class="why-card-title">Built to Scale</div>
@@ -2464,11 +2472,11 @@
 
           <div class="why-card">
             <svg class="why-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="40" rx="8" fill="rgba(31,209,194,0.06)" />
-              <rect x="11" y="11" width="8" height="8" rx="2" stroke="#1FD1C2" stroke-width="2" />
-              <rect x="21" y="11" width="8" height="8" rx="2" stroke="#1FD1C2" stroke-width="2" />
-              <rect x="11" y="21" width="8" height="8" rx="2" stroke="#1FD1C2" stroke-width="2" />
-              <rect x="21" y="21" width="8" height="8" rx="2" stroke="#1FD1C2" stroke-width="2" opacity="0.4" />
+              <rect width="40" height="40" rx="8" fill="rgba(var(--honey-bronze-rgb),0.06)" />
+              <rect x="11" y="11" width="8" height="8" rx="2" stroke="var(--honey-bronze)" stroke-width="2" />
+              <rect x="21" y="11" width="8" height="8" rx="2" stroke="var(--honey-bronze)" stroke-width="2" />
+              <rect x="11" y="21" width="8" height="8" rx="2" stroke="var(--honey-bronze)" stroke-width="2" />
+              <rect x="21" y="21" width="8" height="8" rx="2" stroke="var(--honey-bronze)" stroke-width="2" opacity="0.4" />
             </svg>
             <div class="why-card-title">Smart Integrations</div>
             <p class="why-card-desc">From AI lead tools to website integrations, everything works together to help you win more clients.</p>
@@ -2622,48 +2630,9 @@
                   stroke-linejoin="round" />
               </svg>
             </a>
-            <a href="#case-studies" class="btn-secondary" style="font-size:16px;padding:17px 32px;">
-              See Client Results
-            </a>
           </div>
-
-          <div class="final-trust">
-            <div class="final-trust-item">
-              <div class="check-icon">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                  <path d="M2 5l2 2 4-4" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </div>
-              No long-term contracts
-            </div>
-            <div class="final-trust-item">
-              <div class="check-icon">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                  <path d="M2 5l2 2 4-4" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </div>
-              30-day results guarantee
-            </div>
-            <div class="final-trust-item">
-              <div class="check-icon">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                  <path d="M2 5l2 2 4-4" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </div>
-              You own everything we build
-            </div>
-            <div class="final-trust-item">
-              <div class="check-icon">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                  <path d="M2 5l2 2 4-4" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </div>
-              Async-friendly process
-            </div>
+          <div class="final-cta-note">
+            Free audit slots are limited — lock in your strategy call while availability remains.
           </div>
 
         </div>
