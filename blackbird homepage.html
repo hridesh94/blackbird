@@ -1,0 +1,2695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Blackbird is an AI Systems & Automation Agency that builds intelligent workflows, conversion-first websites, and scalable backend infrastructure for growing businesses.">
+  <title>Blackbird — AI Systems & Automation Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --obsidian: #0B0D10;
+      --graphite: #1A1F26;
+      --slate: #2A313B;
+      --bone: #F5F3EF;
+      --mist: #D9D6D1;
+      --teal: #1FD1C2;
+      --teal-dark: #149B91;
+      --sage: #8FBF9F;
+      --text-primary: #FFFFFF;
+      --text-secondary: #B8BEC7;
+      --text-muted: #6B7480;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --max-w: 1280px;
+      --grid: repeat(12, 1fr);
+      --gap: 24px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--obsidian);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Sora', sans-serif;
+      line-height: 1.05;
+    }
+
+    .h1 {
+      font-size: clamp(44px, 5.5vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .h2 {
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .h3 {
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .h4 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .body-lg {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .caption {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .text-secondary {
+      color: var(--text-secondary);
+    }
+
+    .text-muted {
+      color: var(--text-muted);
+    }
+
+    .text-teal {
+      color: var(--teal);
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .grid-12 {
+      display: grid;
+      grid-template-columns: var(--grid);
+      gap: var(--gap);
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal);
+      color: var(--obsidian);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 16px 28px;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 15px 28px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--slate);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+
+    .btn-secondary:hover {
+      border-color: #4A5568;
+      background: rgba(255, 255, 255, 0.03);
+      transform: translateY(-1px);
+    }
+
+    /* ── DIVIDER LINE ── */
+    .line {
+      width: 100%;
+      height: 1px;
+      background: var(--slate);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 13, 16, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--slate);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo-mark {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-brand {
+      font-family: 'Sora', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid var(--slate);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-primary);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .nav-toggle:hover {
+      border-color: rgba(31, 209, 194, 0.35);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-mobile-panel {
+      display: none;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid var(--slate);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .section-badge .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    /* ══════════════════════════════
+     SECTION 1 — HERO
+  ══════════════════════════════ */
+    #hero {
+      min-height: calc(100vh - 68px);
+      display: flex;
+      align-items: center;
+      padding: 80px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 800px 600px at 70% 40%, rgba(31, 209, 194, 0.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-left {
+      grid-column: 1 / 7;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-right {
+      grid-column: 7 / 13;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-headline {
+      margin-bottom: 24px;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--teal);
+    }
+
+    .hero-body {
+      max-width: 480px;
+      margin-bottom: 40px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+
+    .trust-row {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--slate);
+    }
+
+    .trust-item {}
+
+    .trust-value {
+      font-family: 'Sora', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .trust-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .trust-divider {
+      width: 1px;
+      height: 40px;
+      background: var(--slate);
+    }
+
+    /* ── HERO VISUAL (Abstract Workflow) ── */
+    .hero-visual {
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 1 / 1;
+      position: relative;
+    }
+
+    .hero-visual-canvas {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    /* Floating cards on hero visual */
+    .wf-card {
+      position: absolute;
+      background: var(--graphite);
+      border: 1px solid var(--slate);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .wf-card-sm {
+      position: absolute;
+      background: var(--graphite);
+      border: 1px solid var(--slate);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .wf-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .wf-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .wf-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .wf-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .wf-badge-teal {
+      background: rgba(31, 209, 194, 0.12);
+      color: var(--teal);
+    }
+
+    .wf-badge-gray {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+    }
+
+    .wf-status-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .wf-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .wf-dot-teal {
+      background: var(--teal);
+    }
+
+    .wf-dot-slate {
+      background: var(--slate);
+    }
+
+    .wf-bar {
+      height: 3px;
+      border-radius: 2px;
+      background: var(--slate);
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .wf-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--teal);
+    }
+
+    .wf-connector {
+      position: absolute;
+      background: none;
+      pointer-events: none;
+    }
+
+    .wf-node {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 3px rgba(31, 209, 194, 0.15);
+    }
+
+    .wf-metric-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .wf-metric {
+      text-align: center;
+    }
+
+    .wf-metric-val {
+      font-family: 'Sora', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    .wf-metric-key {
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* Floating animation */
+    @keyframes float-a {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-8px)
+      }
+    }
+
+    @keyframes float-b {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(6px)
+      }
+    }
+
+    @keyframes float-c {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-5px)
+      }
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.4
+      }
+    }
+
+    @keyframes draw {
+      from {
+        stroke-dashoffset: 300
+      }
+
+      to {
+        stroke-dashoffset: 0
+      }
+    }
+
+    @keyframes mobile-flow {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: 0 32px;
+      }
+    }
+
+    @keyframes mobile-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 3px rgba(31, 209, 194, 0.14);
+        opacity: 0.9;
+      }
+
+      50% {
+        box-shadow: 0 0 0 8px rgba(31, 209, 194, 0.06);
+        opacity: 1;
+      }
+    }
+
+    .float-a {
+      animation: float-a 5s ease-in-out infinite;
+    }
+
+    .float-b {
+      animation: float-b 6s ease-in-out infinite;
+    }
+
+    .float-c {
+      animation: float-c 7s ease-in-out infinite;
+    }
+
+    .fade-in {
+      animation: fade-in 0.8s ease both;
+    }
+
+    .fade-in-1 {
+      animation: fade-in 0.8s 0.1s ease both;
+    }
+
+    .fade-in-2 {
+      animation: fade-in 0.8s 0.2s ease both;
+    }
+
+    .fade-in-3 {
+      animation: fade-in 0.8s 0.35s ease both;
+    }
+
+    .fade-in-4 {
+      animation: fade-in 0.8s 0.5s ease both;
+    }
+
+    .fade-in-5 {
+      animation: fade-in 0.8s 0.65s ease both;
+    }
+
+    /* ══════════════════════════════
+     SECTION 2 — SERVICES
+  ══════════════════════════════ */
+    #services {
+      padding: 100px 0;
+      border-top: 1px solid var(--slate);
+    }
+
+    .services-header {
+      grid-column: 1 / 8;
+      margin-bottom: 64px;
+    }
+
+    .services-header-full {
+      grid-column: 1 / -1;
+      margin-bottom: 64px;
+    }
+
+    .services-grid {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--graphite);
+      border: 1px solid var(--slate);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+      cursor: default;
+    }
+
+    .service-card:hover {
+      border-color: rgba(31, 209, 194, 0.3);
+      transform: translateY(-3px);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(31, 209, 194, 0.25), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card-inner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(ellipse 200px 200px at 50% 0%, rgba(31, 209, 194, 0.03), transparent);
+      pointer-events: none;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(31, 209, 194, 0.08);
+      border: 1px solid rgba(31, 209, 194, 0.15);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+
+    .service-num {
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .service-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--text-primary);
+    }
+
+    .service-desc {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--slate);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .service-visual {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--slate);
+    }
+
+    .service-card-arrow {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+      color: var(--text-muted);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      transform: translateX(-4px);
+    }
+
+    .service-card:hover .service-card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ── Mini pipeline in service cards ── */
+    .mini-flow {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .mini-block {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--slate);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .mini-arrow {
+      color: var(--teal);
+      font-size: 10px;
+      opacity: 0.6;
+    }
+
+    /* ══════════════════════════════
+     SECTION 3 — PROCESS
+  ══════════════════════════════ */
+    #process {
+      padding: 100px 0;
+      border-top: 1px solid var(--slate);
+      background: var(--graphite);
+    }
+
+    .process-header {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 64px;
+    }
+
+    .process-steps {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(100% / 8);
+      right: calc(100% / 8);
+      height: 1px;
+      background: linear-gradient(90deg, var(--slate), var(--teal), var(--slate));
+      z-index: 0;
+    }
+
+    .process-step {
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num-wrap {
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .step-num {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Sora', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: background 0.3s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .step-num-active {
+      background: var(--teal);
+      color: var(--obsidian);
+      box-shadow: 0 0 0 8px rgba(31, 209, 194, 0.1);
+    }
+
+    .step-num-inactive {
+      background: var(--graphite);
+      border: 1px solid var(--slate);
+      color: var(--text-muted);
+    }
+
+    .step-name {
+      font-family: 'Sora', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .step-desc {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    .step-deliverable {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      padding: 5px 12px;
+      background: rgba(31, 209, 194, 0.06);
+      border: 1px solid rgba(31, 209, 194, 0.15);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--teal);
+    }
+
+    /* ══════════════════════════════
+     SECTION 4 — CASE STUDIES
+  ══════════════════════════════ */
+    #case-studies {
+      padding: 100px 0;
+      border-top: 1px solid var(--slate);
+    }
+
+    .cs-header {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 64px;
+    }
+
+    .cs-grid {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .cs-card {
+      background: var(--graphite);
+      border: 1px solid var(--slate);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .cs-card:hover {
+      border-color: rgba(31, 209, 194, 0.25);
+      transform: translateY(-3px);
+    }
+
+    .cs-card-visual {
+      height: 220px;
+      background: var(--obsidian);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--slate);
+    }
+
+    .cs-card-body {
+      padding: 36px;
+    }
+
+    .cs-industry {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .cs-card-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .cs-card-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .cs-metrics {
+      display: flex;
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--slate);
+    }
+
+    .cs-metric {
+      flex: 1;
+    }
+
+    .cs-metric-val {
+      font-family: 'Sora', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+    }
+
+    .cs-metric-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ── CS Visual abstracts ── */
+    .cs-abstract {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
+
+    /* ══════════════════════════════
+     SECTION 5 — WHY BLACKBIRD
+  ══════════════════════════════ */
+    #why {
+      padding: 100px 0;
+      border-top: 1px solid var(--slate);
+      background: var(--graphite);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #why::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(31, 209, 194, 0.03), transparent 70%);
+      pointer-events: none;
+    }
+
+    .why-left {
+      grid-column: 1 / 6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .why-right {
+      grid-column: 6 / 13;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .why-card {
+      background: var(--obsidian);
+      border: 1px solid var(--slate);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: border-color 0.25s;
+    }
+
+    .why-card:hover {
+      border-color: rgba(31, 209, 194, 0.25);
+    }
+
+    .why-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 16px;
+    }
+
+    .why-card-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .why-card-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .why-cta-block {
+      margin-top: 48px;
+      padding: 32px;
+      background: rgba(31, 209, 194, 0.05);
+      border: 1px solid rgba(31, 209, 194, 0.15);
+      border-radius: var(--radius-lg);
+    }
+
+    .why-cta-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .why-cta-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════
+     SECTION 6 — FINAL CTA
+  ══════════════════════════════ */
+    #final-cta {
+      padding: 120px 0;
+      border-top: 1px solid var(--slate);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 900px 600px at 50% 50%, rgba(31, 209, 194, 0.045) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .final-inner {
+      grid-column: 2 / 12;
+      text-align: center;
+    }
+
+    .final-headline {
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    .final-sub {
+      max-width: 560px;
+      margin: 0 auto 48px;
+      font-size: 18px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .final-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .final-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .final-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .check-icon {
+      width: 18px;
+      height: 18px;
+      background: rgba(31, 209, 194, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--obsidian);
+      border-top: 1px solid var(--slate);
+      padding: 48px 0;
+    }
+
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-secondary);
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ══════════════════════════════
+     FAQ
+  ══════════════════════════════ */
+    #faq {
+      padding: 100px 0;
+      border-top: 1px solid var(--slate);
+      background: var(--graphite);
+    }
+
+    .faq-header {
+      grid-column: 1 / 6;
+    }
+
+    .faq-list {
+      grid-column: 6 / 13;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--slate);
+      overflow: hidden;
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid var(--slate);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+      color: var(--text-primary);
+    }
+
+    .faq-q-text {
+      font-family: 'Sora', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .faq-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--slate);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s, transform 0.3s;
+      color: var(--text-muted);
+    }
+
+    .faq-item.open .faq-icon {
+      background: rgba(31, 209, 194, 0.08);
+      border-color: rgba(31, 209, 194, 0.3);
+      color: var(--teal);
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-a-text {
+      padding-bottom: 24px;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .nav-links {
+        gap: 24px;
+      }
+
+      .nav-cta {
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-inner {
+        position: relative;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .nav-mobile-panel {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        border: 1px solid var(--slate);
+        border-radius: var(--radius-lg);
+        background: rgba(11, 13, 16, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .nav-mobile-panel.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-mobile-links {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        list-style: none;
+      }
+
+      .nav-mobile-links a {
+        display: block;
+        padding: 12px 4px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+
+      .nav-mobile-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      #hero {
+        padding: 64px 0 72px;
+        min-height: auto;
+      }
+
+      .hero-left,
+      .hero-right,
+      .why-left,
+      .why-right,
+      .faq-header,
+      .faq-list,
+      .final-inner,
+      .services-header,
+      .services-header-full,
+      .process-header,
+      .cs-header {
+        grid-column: 1 / -1;
+      }
+
+      .hero-left {
+        margin-bottom: 48px;
+      }
+
+      .hero-right {
+        justify-content: flex-start;
+      }
+
+      .hero-visual {
+        max-width: 520px;
+        min-height: 500px;
+        margin: 0 auto;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .process-header,
+      .cs-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .why-right {
+        margin-top: 40px;
+      }
+
+      .faq-list {
+        margin-top: 40px;
+      }
+
+      .footer-inner {
+        flex-wrap: wrap;
+        gap: 20px 32px;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .services-grid,
+      .cs-grid,
+      .why-right,
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100%;
+        min-height: auto;
+        aspect-ratio: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        position: relative;
+        padding: 4px 0;
+      }
+
+      .hero-visual::before {
+        content: '';
+        position: absolute;
+        top: 52px;
+        bottom: 52px;
+        left: 50%;
+        width: 2px;
+        transform: translateX(-50%);
+        background:
+          linear-gradient(180deg, rgba(31, 209, 194, 0) 0%, rgba(31, 209, 194, 0.35) 12%, rgba(31, 209, 194, 0.75) 50%, rgba(31, 209, 194, 0.35) 88%, rgba(31, 209, 194, 0) 100%),
+          repeating-linear-gradient(180deg, rgba(31, 209, 194, 0.75) 0 10px, rgba(31, 209, 194, 0) 10px 20px);
+        border-radius: 999px;
+        opacity: 0.7;
+        animation: mobile-flow 2.4s linear infinite;
+      }
+
+      .hero-visual svg {
+        display: none;
+      }
+
+      .hero-visual .wf-card {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        max-width: none;
+        padding: 18px 18px;
+        transform: none !important;
+        animation-duration: 5.5s !important;
+        animation-timing-function: ease-in-out !important;
+        animation-iteration-count: infinite !important;
+        overflow: visible;
+      }
+
+      .hero-visual .wf-card::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -24px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--teal);
+        transform: translateX(-50%);
+        box-shadow: 0 0 0 3px rgba(31, 209, 194, 0.14);
+        animation: mobile-glow 1.8s ease-in-out infinite;
+      }
+
+      .hero-visual .wf-card:last-child::after {
+        display: none;
+      }
+
+      .hero-visual .wf-title {
+        font-size: 15px;
+      }
+
+      .hero-visual .wf-sub,
+      .hero-visual .wf-status-row span,
+      .hero-visual .wf-metric-key,
+      .hero-visual .wf-label,
+      .hero-visual .wf-badge {
+        font-size: 11px;
+      }
+
+      .hero-visual .wf-metric-val {
+        font-size: 18px;
+      }
+
+      .hero-visual>.wf-card:nth-of-type(2),
+      .hero-visual>.wf-card:nth-of-type(4) {
+        margin-right: 40px;
+        animation-name: float-b !important;
+      }
+
+      .hero-visual>.wf-card:nth-of-type(3),
+      .hero-visual>.wf-card:nth-of-type(5) {
+        margin-left: 40px;
+        animation-name: float-c !important;
+      }
+
+      .hero-visual>.wf-card:nth-of-type(1) {
+        animation-name: float-a !important;
+      }
+
+      .hero-visual .wf-status-row {
+        flex-wrap: wrap;
+      }
+
+      .hero-visual .wf-metric-row {
+        gap: 10px;
+      }
+
+      .services-header-full>div[style*="display:flex"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 18px;
+      }
+
+      .services-header-full p[style],
+      .process-header p[style] {
+        max-width: none !important;
+        text-align: left !important;
+      }
+
+      .process-steps {
+        gap: 28px;
+      }
+
+      .process-steps::before {
+        display: none;
+      }
+
+      .process-step {
+        padding: 0;
+      }
+
+      .step-num-wrap {
+        margin-bottom: 28px;
+      }
+
+      .cs-metrics {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .cs-metric {
+        min-width: 120px;
+      }
+
+      .footer-inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container,
+      .nav-inner,
+      .footer-inner {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .nav-mobile-panel {
+        left: 20px;
+        right: 20px;
+      }
+
+      .hero-headline {
+        margin-bottom: 20px;
+      }
+
+      .hero-visual>.wf-card:nth-of-type(2),
+      .hero-visual>.wf-card:nth-of-type(4) {
+        margin-right: 20px;
+      }
+
+      .hero-visual>.wf-card:nth-of-type(3),
+      .hero-visual>.wf-card:nth-of-type(5) {
+        margin-left: 20px;
+      }
+
+      .hero-body,
+      .final-sub {
+        font-size: 16px;
+      }
+
+      .trust-row {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .trust-divider {
+        display: none;
+      }
+
+      .service-card,
+      .cs-card-body,
+      .why-card,
+      .why-cta-block {
+        padding: 24px;
+      }
+
+      .cs-card-visual {
+        height: 180px;
+      }
+
+      .nav-mobile-actions {
+        align-items: stretch;
+      }
+
+      .nav-mobile-actions a {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════
+  NAVIGATION
+═══════════════════════════════════ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <svg class="nav-logo-mark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 75 C20 75, 38 65, 58 48 L100 18 L92 32 L60 55 L78 50 L48 72 L66 68 L32 90 Z" fill="white" />
+        </svg>
+        <span class="nav-brand">Blackbird</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#case-studies">Work</a></li>
+        <li><a href="#why">About</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#case-studies" class="btn-secondary" style="padding:11px 20px; font-size:14px;">View Our Work</a>
+        <a href="#final-cta" class="btn-primary" style="padding:11px 20px; font-size:14px;">Book a Call</a>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-panel"
+        aria-label="Open navigation menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <div class="nav-mobile-panel" id="nav-mobile-panel" aria-hidden="true">
+        <ul class="nav-mobile-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#case-studies">Work</a></li>
+          <li><a href="#why">About</a></li>
+        </ul>
+
+        <div class="nav-mobile-actions">
+          <a href="#case-studies" class="btn-secondary">View Our Work</a>
+          <a href="#final-cta" class="btn-primary">Book a Call</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════
+  SECTION 1 — HERO
+═══════════════════════════════════ -->
+  <section id="hero">
+    <div class="container">
+      <div class="grid-12">
+
+        <!-- LEFT COLUMN -->
+        <div class="hero-left">
+          <div class="section-badge fade-in">
+            <span class="dot"></span>
+            AI Systems &amp; Automation Agency
+          </div>
+
+          <h1 class="h1 hero-headline fade-in-1">
+            Build systems that<br>
+            <em>scale your business</em>
+          </h1>
+
+          <p class="body-lg text-secondary hero-body fade-in-2">
+            AI automation, websites, and intelligent workflows that eliminate manual work and build the operational
+            foundation your business needs to grow.
+          </p>
+
+          <div class="hero-ctas fade-in-3">
+            <a href="#final-cta" class="btn-primary">
+              Book a Discovery Call
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a href="#case-studies" class="btn-secondary">View Our Work</a>
+          </div>
+
+          <div class="trust-row fade-in-4">
+            <div class="trust-item">
+              <div class="trust-value">40+</div>
+              <div class="trust-label">Systems Built</div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <div class="trust-value">3×</div>
+              <div class="trust-label">Faster Workflows</div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <div class="trust-value">98%</div>
+              <div class="trust-label">Client Retention</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN — Abstract Workflow Visual -->
+        <div class="hero-right fade-in-5">
+          <!-- Workflow diagram: fixed 520×500 canvas, 3 rows, no overlaps -->
+          <div class="hero-visual" style="position:relative;width:520px;height:500px;flex-shrink:0;">
+
+            <!-- ── SVG connector lines (drawn first, behind cards) ── -->
+            <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;"
+              viewBox="0 0 520 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+              <!-- Top card (center-bottom: 260,96) → Mid-left card (center-top: 120,176) -->
+              <path d="M260 96 C260 136 120 136 120 176" stroke="#2A313B" stroke-width="1" stroke-dasharray="4 4" />
+              <!-- Top card (center-bottom: 260,96) → Mid-right card (center-top: 400,176) -->
+              <path d="M260 96 C260 136 400 136 400 176" stroke="#2A313B" stroke-width="1" stroke-dasharray="4 4" />
+              <!-- Mid-left card (center-bottom: 120,306) → Bottom-left (center-top: 120,376) -->
+              <path d="M120 306 L120 376" stroke="#2A313B" stroke-width="1" stroke-dasharray="4 4" />
+              <!-- Mid-right card (center-bottom: 400,306) → Bottom-right (center-top: 400,376) -->
+              <path d="M400 306 L400 376" stroke="#2A313B" stroke-width="1" stroke-dasharray="4 4" />
+
+              <!-- Animated teal pulse: top → mid-right → bottom-right (active path) -->
+              <path d="M260 96 C260 136 400 136 400 176 L400 306 L400 376" stroke="#1FD1C2" stroke-width="1.5"
+                stroke-dasharray="6 4" opacity="0.5">
+                <animate attributeName="stroke-dashoffset" from="400" to="0" dur="2.5s" repeatCount="indefinite" />
+              </path>
+
+              <!-- Junction dots -->
+              <circle cx="260" cy="96" r="4" fill="#1FD1C2" opacity="0.8" />
+              <circle cx="120" cy="176" r="3.5" fill="#0B0D10" stroke="#2A313B" stroke-width="1.5" />
+              <circle cx="400" cy="176" r="3.5" fill="#0B0D10" stroke="#1FD1C2" stroke-width="1.5" />
+              <circle cx="120" cy="306" r="3.5" fill="#0B0D10" stroke="#2A313B" stroke-width="1.5" />
+              <circle cx="400" cy="306" r="3.5" fill="#0B0D10" stroke="#1FD1C2" stroke-width="1.5" />
+            </svg>
+
+            <!-- ────────────────────────────
+               ROW 1 — Trigger (centered)
+               top: 0 | height: ~96px
+          ──────────────────────────── -->
+            <div class="wf-card float-a"
+              style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:230px;">
+              <div class="wf-label">Trigger Event</div>
+              <div class="wf-title">New Lead Captured</div>
+              <div class="wf-status-row" style="margin-top:10px;">
+                <div class="wf-dot wf-dot-teal" style="animation:pulse 1.5s ease infinite;"></div>
+                <span style="font-size:12px;color:#1FD1C2;font-weight:500;">Active</span>
+                <span class="wf-badge wf-badge-teal" style="margin-left:auto;">CRM</span>
+              </div>
+            </div>
+
+            <!-- ────────────────────────────
+               ROW 2 — AI Classification (left) + Smart Routing (right)
+               top: 176 | height: ~130px
+          ──────────────────────────── -->
+            <div class="wf-card float-b" style="position:absolute;top:176px;left:0;width:228px;">
+              <div class="wf-label">AI Classification</div>
+              <div class="wf-title">Segment &amp; Score</div>
+              <div class="wf-bar" style="margin-top:12px;">
+                <div class="wf-bar-fill" style="width:78%;"></div>
+              </div>
+              <div class="wf-sub" style="margin-top:6px;">Score: 78 · Tier A</div>
+            </div>
+
+            <div class="wf-card float-c" style="position:absolute;top:176px;right:0;width:228px;">
+              <div class="wf-label">Smart Routing</div>
+              <div class="wf-title">Pipeline Assigned</div>
+              <div style="margin-top:10px;display:flex;flex-direction:column;gap:7px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <div style="width:5px;height:5px;border-radius:50%;background:#1FD1C2;flex-shrink:0;"></div>
+                  <span style="font-size:12px;color:#B8BEC7;">High-value → Sales</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <div style="width:5px;height:5px;border-radius:50%;background:#2A313B;flex-shrink:0;"></div>
+                  <span style="font-size:12px;color:#6B7480;">Standard → Nurture</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ────────────────────────────
+               ROW 3 — Outreach (left) + Outcomes (right)
+               top: 376 | height: ~120px
+          ──────────────────────────── -->
+            <div class="wf-card float-a" style="position:absolute;top:376px;left:0;width:228px;">
+              <div class="wf-label">Outreach</div>
+              <div class="wf-title">Email Sent</div>
+              <div class="wf-sub" style="margin-top:4px;">Personalised via GPT-4o</div>
+              <div class="wf-badge wf-badge-teal" style="margin-top:10px;display:inline-block;">Delivered ✓</div>
+            </div>
+
+            <div class="wf-card float-b" style="position:absolute;top:376px;right:0;width:228px;">
+              <div class="wf-label">Outcomes</div>
+              <div class="wf-metric-row" style="margin-top:8px;">
+                <div class="wf-metric">
+                  <div class="wf-metric-val">3×</div>
+                  <div class="wf-metric-key">Conversion</div>
+                </div>
+                <div style="width:1px;background:var(--slate);align-self:stretch;"></div>
+                <div class="wf-metric">
+                  <div class="wf-metric-val">0h</div>
+                  <div class="wf-metric-key">Manual Work</div>
+                </div>
+                <div style="width:1px;background:var(--slate);align-self:stretch;"></div>
+                <div class="wf-metric">
+                  <div class="wf-metric-val">24/7</div>
+                  <div class="wf-metric-key">Running</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+  SECTION 2 — SERVICES
+═══════════════════════════════════ -->
+  <section id="services">
+    <div class="container">
+      <div class="grid-12">
+        <div class="services-header-full reveal">
+          <div class="section-badge"><span class="dot"></span>What We Build</div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+            <h2 class="h2" style="max-width:520px;">
+              Infrastructure for<br>intelligent businesses
+            </h2>
+            <p class="body text-secondary" style="max-width:360px;text-align:right;">
+              We don't build features. We build systems — connected, scalable, and designed to compound over time.
+            </p>
+          </div>
+        </div>
+
+        <div class="services-grid reveal">
+
+          <!-- Card 1 — AI Automation -->
+          <div class="service-card">
+            <div class="service-card-arrow">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="service-num">01</span>
+            <div class="service-title">AI Automation</div>
+            <p class="service-desc">
+              We design and deploy AI-powered workflows that replace repetitive manual processes. From lead handling to
+              data extraction, your systems work while you sleep.
+            </p>
+            <div class="service-tags">
+              <span class="tag">GPT-4o</span>
+              <span class="tag">Claude</span>
+              <span class="tag">Make / n8n</span>
+              <span class="tag">CRM Sync</span>
+            </div>
+            <div class="service-visual">
+              <div class="mini-flow">
+                <div class="mini-block">Input</div>
+                <span class="mini-arrow">→</span>
+                <div class="mini-block">AI Process</div>
+                <span class="mini-arrow">→</span>
+                <div class="mini-block">Route</div>
+                <span class="mini-arrow">→</span>
+                <div class="mini-block">Output</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 — Websites -->
+          <div class="service-card">
+            <div class="service-card-arrow">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="service-num">02</span>
+            <div class="service-title">Websites &amp; Conversion Systems</div>
+            <p class="service-desc">
+              Performance-first websites built to convert. Every page, flow, and element is engineered to guide visitors
+              toward your business objectives — not just look good.
+            </p>
+            <div class="service-tags">
+              <span class="tag">Webflow</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">CRO</span>
+              <span class="tag">Analytics</span>
+            </div>
+            <div class="service-visual">
+              <div style="display:flex;gap:8px;">
+                <div
+                  style="flex:1;height:36px;background:rgba(31,209,194,0.08);border:1px solid rgba(31,209,194,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-size:11px;color:#1FD1C2;font-weight:600;">Landing</span>
+                </div>
+                <div
+                  style="flex:1;height:36px;background:rgba(255,255,255,0.03);border:1px solid #2A313B;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-size:11px;color:#6B7480;font-weight:500;">Funnel</span>
+                </div>
+                <div
+                  style="flex:1;height:36px;background:rgba(255,255,255,0.03);border:1px solid #2A313B;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-size:11px;color:#6B7480;font-weight:500;">Checkout</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 — Workflow Infrastructure -->
+          <div class="service-card">
+            <div class="service-card-arrow">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="service-num">03</span>
+            <div class="service-title">Workflow Infrastructure</div>
+            <p class="service-desc">
+              Backend systems, API integrations, and data pipelines that connect your tools into a single, coherent
+              operational layer. No more data silos or manual hand-offs.
+            </p>
+            <div class="service-tags">
+              <span class="tag">Zapier</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Airtable</span>
+              <span class="tag">Databases</span>
+            </div>
+            <div class="service-visual">
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <div style="width:8px;height:8px;border-radius:50%;background:#1FD1C2;flex-shrink:0;"></div>
+                  <div style="flex:1;height:2px;background:linear-gradient(90deg,#1FD1C2,#2A313B);border-radius:2px;">
+                  </div>
+                  <div
+                    style="width:8px;height:8px;border-radius:50%;background:#2A313B;flex-shrink:0;border:1px solid #1FD1C2;">
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <div
+                    style="width:8px;height:8px;border-radius:50%;background:#2A313B;flex-shrink:0;border:1px solid #2A313B;">
+                  </div>
+                  <div style="flex:1;height:2px;background:#2A313B;border-radius:2px;"></div>
+                  <div style="width:8px;height:8px;border-radius:50%;background:#2A313B;flex-shrink:0;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+  SECTION 3 — PROCESS
+═══════════════════════════════════ -->
+  <section id="process">
+    <div class="container">
+      <div class="grid-12">
+
+        <div class="process-header reveal">
+          <div>
+            <div class="section-badge"><span class="dot"></span>How We Work</div>
+            <h2 class="h2">A proven path to deployment</h2>
+          </div>
+          <p class="body text-secondary" style="max-width:320px;text-align:right;">
+            Four focused phases, from initial discovery to full-scale production.
+          </p>
+        </div>
+
+        <div class="process-steps reveal">
+
+          <div class="process-step">
+            <div class="step-num-wrap">
+              <div class="step-num step-num-active">01</div>
+            </div>
+            <div class="step-name">Discover</div>
+            <p class="step-desc">We map your current operations, identify automation opportunities, and define what
+              success looks like with clear business metrics.</p>
+            <div class="step-deliverable">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6l3 3 5-5" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              Systems Audit
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num-wrap">
+              <div class="step-num step-num-inactive">02</div>
+            </div>
+            <div class="step-name">Design</div>
+            <p class="step-desc">Architecture blueprints, workflow diagrams, and conversion-focused wireframes before a
+              single line of code is written.</p>
+            <div class="step-deliverable">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6l3 3 5-5" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              System Blueprint
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num-wrap">
+              <div class="step-num step-num-inactive">03</div>
+            </div>
+            <div class="step-name">Build</div>
+            <p class="step-desc">Precision development with weekly check-ins. Every component is tested against the
+              success metrics defined in Discovery.</p>
+            <div class="step-deliverable">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6l3 3 5-5" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              Live System
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num-wrap">
+              <div class="step-num step-num-inactive">04</div>
+            </div>
+            <div class="step-name">Scale</div>
+            <p class="step-desc">Once live, we monitor performance, iterate on bottlenecks, and expand the system as
+              your business grows and evolves.</p>
+            <div class="step-deliverable">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6l3 3 5-5" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              Growth Roadmap
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+  SECTION 4 — CASE STUDIES
+═══════════════════════════════════ -->
+  <section id="case-studies">
+    <div class="container">
+      <div class="grid-12">
+
+        <div class="cs-header reveal">
+          <div>
+            <div class="section-badge"><span class="dot"></span>Client Outcomes</div>
+            <h2 class="h2">Systems in the wild</h2>
+          </div>
+          <a href="#final-cta" class="btn-secondary">View All Work</a>
+        </div>
+
+        <div class="cs-grid reveal">
+
+          <!-- Case Study 1 -->
+          <div class="cs-card">
+            <div class="cs-card-visual">
+              <svg width="100%" height="100%" viewBox="0 0 560 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="560" height="220" fill="#0B0D10" />
+                <!-- Modular grid blocks -->
+                <rect x="40" y="30" width="120" height="60" rx="8" fill="#1A1F26" stroke="#2A313B" stroke-width="1" />
+                <rect x="180" y="30" width="90" height="60" rx="8" fill="#1A1F26" stroke="#2A313B" stroke-width="1" />
+                <rect x="290" y="30" width="90" height="60" rx="8" fill="#1A1F26" stroke="#1FD1C2" stroke-width="1"
+                  opacity="0.5" />
+                <rect x="400" y="30" width="120" height="60" rx="8" fill="#1A1F26" stroke="#2A313B" stroke-width="1" />
+                <!-- Connectors -->
+                <path d="M160 60 L180 60" stroke="#2A313B" stroke-width="1" stroke-dasharray="3 3" />
+                <path d="M270 60 L290 60" stroke="#2A313B" stroke-width="1" stroke-dasharray="3 3" />
+                <path d="M380 60 L400 60" stroke="#1FD1C2" stroke-width="1" opacity="0.5" />
+                <!-- Labels -->
+                <text x="100" y="57" text-anchor="middle" fill="#6B7480" font-size="10" font-family="Inter, sans-serif"
+                  font-weight="500">INTAKE</text>
+                <text x="225" y="57" text-anchor="middle" fill="#6B7480" font-size="10" font-family="Inter, sans-serif"
+                  font-weight="500">QUALIFY</text>
+                <text x="335" y="57" text-anchor="middle" fill="#1FD1C2" font-size="10" font-family="Inter, sans-serif"
+                  font-weight="500">AI SCORE</text>
+                <text x="460" y="57" text-anchor="middle" fill="#6B7480" font-size="10" font-family="Inter, sans-serif"
+                  font-weight="500">ROUTE</text>
+                <!-- Bottom metrics row -->
+                <rect x="40" y="120" width="150" height="70" rx="8" fill="#1A1F26" stroke="#2A313B" stroke-width="1" />
+                <rect x="205" y="120" width="150" height="70" rx="8" fill="#1A1F26" stroke="#2A313B" stroke-width="1" />
+                <rect x="370" y="120" width="150" height="70" rx="8" fill="rgba(31,209,194,0.05)"
+                  stroke="rgba(31,209,194,0.2)" stroke-width="1" />
+                <text x="115" y="148" text-anchor="middle" fill="#B8BEC7" font-size="18" font-family="Sora, sans-serif"
+                  font-weight="700">$1.2M</text>
+                <text x="115" y="166" text-anchor="middle" fill="#6B7480" font-size="10"
+                  font-family="Inter, sans-serif">Revenue Influenced</text>
+                <text x="280" y="148" text-anchor="middle" fill="#B8BEC7" font-size="18" font-family="Sora, sans-serif"
+                  font-weight="700">14h/wk</text>
+                <text x="280" y="166" text-anchor="middle" fill="#6B7480" font-size="10"
+                  font-family="Inter, sans-serif">Time Saved</text>
+                <text x="445" y="148" text-anchor="middle" fill="#1FD1C2" font-size="18" font-family="Sora, sans-serif"
+                  font-weight="700">340%</text>
+                <text x="445" y="166" text-anchor="middle" fill="#6B7480" font-size="10"
+                  font-family="Inter, sans-serif">Pipeline Growth</text>
+              </svg>
+            </div>
+            <div class="cs-card-body">
+              <div class="cs-industry">SaaS · B2B Sales</div>
+              <div class="cs-card-title">AI Lead Qualification &amp; CRM Automation</div>
+              <p class="cs-card-desc">
+                End-to-end automation that captures inbound leads, scores intent with AI, routes to the right rep, and
+                personalises the first touch — all without human intervention.
+              </p>
+              <div class="cs-metrics">
+                <div class="cs-metric">
+                  <div class="cs-metric-val">340%</div>
+                  <div class="cs-metric-label">Pipeline Growth</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="cs-metric-val">14h</div>
+                  <div class="cs-metric-label">Weekly Hours Saved</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="cs-metric-val">6wk</div>
+                  <div class="cs-metric-label">Time to Deploy</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 2 -->
+          <div class="cs-card">
+            <div class="cs-card-visual">
+              <svg width="100%" height="100%" viewBox="0 0 560 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="560" height="220" fill="#0B0D10" />
+                <!-- Website mockup outline -->
+                <rect x="40" y="20" width="230" height="180" rx="10" fill="#1A1F26" stroke="#2A313B" stroke-width="1" />
+                <!-- Nav bar -->
+                <rect x="50" y="30" width="210" height="20" rx="4" fill="#0B0D10" stroke="#2A313B" stroke-width="0.5" />
+                <circle cx="68" cy="40" r="4" fill="#2A313B" />
+                <rect x="140" y="37" width="50" height="6" rx="2" fill="#2A313B" />
+                <rect x="200" y="35" width="50" height="10" rx="3" fill="rgba(31,209,194,0.2)" />
+                <!-- Hero area -->
+                <rect x="50" y="58" width="210" height="60" rx="4" fill="#0B0D10" />
+                <rect x="60" y="68" width="140" height="10" rx="2" fill="#2A313B" />
+                <rect x="60" y="84" width="100" height="7" rx="2" fill="#1A1F26" />
+                <rect x="60" y="97" width="80" height="14" rx="4" fill="rgba(31,209,194,0.3)" />
+                <!-- Cards row -->
+                <rect x="50" y="128" width="64" height="60" rx="6" fill="#0B0D10" stroke="#2A313B" stroke-width="0.5" />
+                <rect x="122" y="128" width="64" height="60" rx="6" fill="#0B0D10" stroke="#1FD1C2" stroke-width="0.5"
+                  opacity="0.5" />
+                <rect x="194" y="128" width="58" height="60" rx="6" fill="#0B0D10" stroke="#2A313B"
+                  stroke-width="0.5" />
+                <!-- Analytics panel -->
+                <rect x="290" y="20" width="230" height="180" rx="10" fill="#1A1F26" stroke="#2A313B"
+                  stroke-width="1" />
+                <text x="305" y="42" fill="#6B7480" font-size="10" font-family="Inter, sans-serif"
+                  font-weight="600">CONVERSION ANALYTICS</text>
+                <!-- Chart bars -->
+                <rect x="305" y="120" width="16" height="55" rx="2" fill="#2A313B" />
+                <rect x="330" y="100" width="16" height="75" rx="2" fill="#2A313B" />
+                <rect x="355" y="85" width="16" height="90" rx="2" fill="rgba(31,209,194,0.4)" />
+                <rect x="380" y="70" width="16" height="105" rx="2" fill="rgba(31,209,194,0.6)" />
+                <rect x="405" y="55" width="16" height="120" rx="2" fill="#1FD1C2" />
+                <rect x="430" y="60" width="16" height="115" rx="2" fill="rgba(31,209,194,0.7)" />
+                <rect x="455" y="65" width="16" height="110" rx="2" fill="rgba(31,209,194,0.8)" />
+                <text x="378" y="170" text-anchor="middle" fill="#1FD1C2" font-size="14" font-family="Sora, sans-serif"
+                  font-weight="700">+218%</text>
+                <text x="378" y="185" text-anchor="middle" fill="#6B7480" font-size="9"
+                  font-family="Inter, sans-serif">Conversion Rate</text>
+              </svg>
+            </div>
+            <div class="cs-card-body">
+              <div class="cs-industry">E-commerce · DTC Brand</div>
+              <div class="cs-card-title">Conversion-First Redesign &amp; Analytics Stack</div>
+              <p class="cs-card-desc">
+                Full website rebuild focused on purchase intent. Data-driven layout, behavioural analytics integration,
+                and an A/B testing framework that compounded results month-on-month.
+              </p>
+              <div class="cs-metrics">
+                <div class="cs-metric">
+                  <div class="cs-metric-val">218%</div>
+                  <div class="cs-metric-label">Conversion Rate Lift</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="cs-metric-val">4.1s</div>
+                  <div class="cs-metric-label">Avg. Load Time</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="cs-metric-val">8wk</div>
+                  <div class="cs-metric-label">Time to Launch</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+  SECTION 5 — WHY BLACKBIRD
+═══════════════════════════════════ -->
+  <section id="why">
+    <div class="container">
+      <div class="grid-12">
+
+        <div class="why-left reveal">
+          <div class="section-badge"><span class="dot"></span>Why Blackbird</div>
+          <h2 class="h2" style="margin-bottom:20px;">
+            We think in<br>systems, not tasks
+          </h2>
+          <p class="body-lg text-secondary" style="max-width:400px;margin-bottom:24px;">
+            Most agencies build deliverables. We build infrastructure — operational systems that become more valuable as
+            your business grows.
+          </p>
+          <p class="body text-secondary" style="max-width:400px;">
+            Our work sits at the intersection of technical depth, strategic clarity, and commercial reality. We don't
+            recommend tools for the sake of it. We build what works.
+          </p>
+        </div>
+
+        <div class="why-right reveal">
+
+          <div class="why-card">
+            <svg class="why-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="8" fill="rgba(31,209,194,0.06)" />
+              <path d="M12 20 L18 26 L28 14" stroke="#1FD1C2" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <div class="why-card-title">Systems Thinking</div>
+            <p class="why-card-desc">We map the whole before building any part. Every component connects to your broader
+              operational layer.</p>
+          </div>
+
+          <div class="why-card">
+            <svg class="why-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="8" fill="rgba(31,209,194,0.06)" />
+              <circle cx="20" cy="20" r="8" stroke="#1FD1C2" stroke-width="2" />
+              <path d="M20 12 L20 20 L26 20" stroke="#1FD1C2" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <div class="why-card-title">Precision Execution</div>
+            <p class="why-card-desc">Detailed project management, defined milestones, and weekly accountability — no
+              ambiguity, no surprises.</p>
+          </div>
+
+          <div class="why-card">
+            <svg class="why-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="8" fill="rgba(31,209,194,0.06)" />
+              <path d="M10 30 L16 22 L22 26 L30 14" stroke="#1FD1C2" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <div class="why-card-title">Built to Scale</div>
+            <p class="why-card-desc">Every system is architected with growth in mind — modular, documented, and
+              extendable as your needs evolve.</p>
+          </div>
+
+          <div class="why-card">
+            <svg class="why-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="8" fill="rgba(31,209,194,0.06)" />
+              <rect x="11" y="11" width="8" height="8" rx="2" stroke="#1FD1C2" stroke-width="2" />
+              <rect x="21" y="11" width="8" height="8" rx="2" stroke="#1FD1C2" stroke-width="2" />
+              <rect x="11" y="21" width="8" height="8" rx="2" stroke="#1FD1C2" stroke-width="2" />
+              <rect x="21" y="21" width="8" height="8" rx="2" stroke="#1FD1C2" stroke-width="2" opacity="0.4" />
+            </svg>
+            <div class="why-card-title">Technical Depth</div>
+            <p class="why-card-desc">We go beyond no-code. API integrations, custom backends, and AI orchestration when
+              the job demands it.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+  FAQ
+═══════════════════════════════════ -->
+  <section id="faq">
+    <div class="container">
+      <div class="grid-12">
+
+        <div class="faq-header reveal">
+          <div class="section-badge"><span class="dot"></span>FAQ</div>
+          <h2 class="h2" style="margin-bottom:20px;">
+            Common<br>questions
+          </h2>
+          <p class="body text-secondary" style="max-width:320px;margin-bottom:32px;">
+            Everything you need to know before we start. Don't see your question? Book a call and we'll answer it
+            directly.
+          </p>
+
+        </div>
+
+        <div class="faq-list reveal">
+
+          <div class="faq-item open">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span class="faq-q-text">How long does a typical project take?</span>
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-a-text">Most projects fall between 4 and 10 weeks depending on scope. A focused automation
+                workflow can be live in 3–4 weeks. A full website with integrated systems typically takes 6–8 weeks. We
+                agree on a timeline before starting and hold to it.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span class="faq-q-text">Do I need technical knowledge to work with you?</span>
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-a-text">None at all. We work with founders and operators who understand their business
+                deeply — not necessarily the technology. Our job is to translate your operational challenges into
+                systems. We handle the technical complexity end-to-end and explain everything in plain terms.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span class="faq-q-text">Who owns the systems and code after delivery?</span>
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-a-text">You own everything we build — full stop. All code, workflows, credentials, and
+                documentation transfer to you on delivery. We provide handover guides and optional training so your team
+                can operate the systems independently if you choose.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span class="faq-q-text">What if I only need one thing — a website or one automation?</span>
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-a-text">That's completely fine. We scope every engagement based on what your business
+                actually needs right now. Many clients start with a single automation or conversion website and expand
+                from there. There's no minimum requirement — just a clear problem and a willingness to solve it
+                properly.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span class="faq-q-text">How are projects priced?</span>
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-a-text">We price per project, not by the hour. After your discovery call we produce a
+                fixed-scope proposal with a clear deliverable list and price. No hidden fees, no scope creep surprises.
+                For ongoing retainer work, we offer monthly infrastructure packages.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span class="faq-q-text">Do you offer support after the project is live?</span>
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p class="faq-a-text">Yes. Every project includes a 30-day post-launch support window. For clients who
+                want ongoing monitoring, iteration, and system expansion, we offer a monthly retainer that covers
+                maintenance, performance reviews, and new feature development as your business evolves.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+  SECTION 6 — FINAL CTA
+═══════════════════════════════════ -->
+  <section id="final-cta">
+    <div class="container">
+      <div class="grid-12">
+        <div class="final-inner reveal">
+
+          <div class="section-badge" style="margin:0 auto 28px;">
+            <span class="dot"></span>Start Here
+          </div>
+
+          <h2 class="h2 final-headline" style="font-size:clamp(36px,4.5vw,60px);">
+            Let's build your growth<br>infrastructure
+          </h2>
+
+          <p class="final-sub">
+            One conversation to understand your operations. One system to transform them. No lock-in. No fluff. Just
+            results.
+          </p>
+
+          <div class="final-ctas">
+            <a href="#final-cta" class="btn-primary" style="font-size:16px;padding:18px 32px;">
+              Book a Strategy Call
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a href="#case-studies" class="btn-secondary" style="font-size:16px;padding:17px 32px;">
+              View Our Work
+            </a>
+          </div>
+
+          <div class="final-trust">
+            <div class="final-trust-item">
+              <div class="check-icon">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                  <path d="M2 5l2 2 4-4" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+              No long-term contracts
+            </div>
+            <div class="final-trust-item">
+              <div class="check-icon">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                  <path d="M2 5l2 2 4-4" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+              30-day results guarantee
+            </div>
+            <div class="final-trust-item">
+              <div class="check-icon">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                  <path d="M2 5l2 2 4-4" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+              You own everything we build
+            </div>
+            <div class="final-trust-item">
+              <div class="check-icon">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                  <path d="M2 5l2 2 4-4" stroke="#1FD1C2" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+              Async-friendly process
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+  FOOTER
+═══════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <a href="#hero" class="nav-logo" style="text-decoration:none;">
+        <svg class="nav-logo-mark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 75 C20 75, 38 65, 58 48 L100 18 L92 32 L60 55 L78 50 L48 72 L66 68 L32 90 Z" fill="white"
+            opacity="0.4" />
+        </svg>
+        <span class="nav-brand" style="color:var(--text-muted);font-size:15px;">Blackbird</span>
+      </a>
+
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#case-studies">Work</a></li>
+        <li><a href="#final-cta">Contact</a></li>
+      </ul>
+
+      <div class="footer-copy">© <span id="copyright-year"></span> Blackbird. All systems operational.</div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Stagger reveal children in services and case studies
+    document.querySelectorAll('.services-grid .service-card, .cs-grid .cs-card, .process-steps .process-step, .why-right .why-card').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.1}s`;
+    });
+
+    // Mobile navigation
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMobilePanel = document.querySelector('.nav-mobile-panel');
+
+    function setNavOpen(isOpen) {
+      if (!navToggle || !navMobilePanel) return;
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      navMobilePanel.classList.toggle('open', isOpen);
+      navMobilePanel.setAttribute('aria-hidden', String(!isOpen));
+    }
+
+    if (navToggle && navMobilePanel) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+        setNavOpen(!isOpen);
+      });
+
+      navMobilePanel.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setNavOpen(false));
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) setNavOpen(false);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setNavOpen(false);
+      });
+    }
+
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Subtle parallax on hero visual
+    const heroVisual = document.querySelector('.hero-visual');
+    if (heroVisual && window.innerWidth > 768 && window.matchMedia('(pointer: fine)').matches) {
+      window.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 10;
+        const y = (e.clientY / window.innerHeight - 0.5) * 10;
+        heroVisual.style.transform = `translate(${x}px, ${y}px)`;
+      });
+    } else if (heroVisual) {
+      heroVisual.style.transform = 'none';
+    }
+
+    // Dynamic copyright year
+    const copyrightYear = document.getElementById('copyright-year');
+    if (copyrightYear) {
+      copyrightYear.textContent = new Date().getFullYear();
+    }
+  </script>
+
+</body>
+
+</html>
