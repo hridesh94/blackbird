@@ -3508,21 +3508,96 @@
   </script>
 
   <!-- Blackbird AI Chatbot -->
-  <script src="https://omerfayyaz.com/n8n-brandable-chatbox/n8n-brandable-chatbox.js"></script>
+  <style>
+    #bb-launcher {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* MagicUI PulsatingButton style: bg-inherit div that scales 2x and fades */
+    #bb-launcher-ping {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: #1FD1C2;
+      opacity: 0.75;
+      animation: bb-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    @keyframes bb-ping {
+      75%, 100% { transform: scale(2); opacity: 0; }
+    }
+    #bb-launcher-btn {
+      position: relative;
+      z-index: 1;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #1FD1C2;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(31, 209, 194, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    #bb-launcher-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(31, 209, 194, 0.6);
+    }
+  </style>
+  <script src="./n8n-brandable-chatbox.js"></script>
   <script>
     const chatbox = window.N8NbrandableChatbox.init({
-      webhookUrl: "https://n8n.theblackbird.one/webhook-test/9269ca42-f049-499d-b584-4fb8a7c7404b",
+      webhookUrl: "https://n8n.theblackbird.one/webhook/9269ca42-f049-499d-b584-4fb8a7c7404b",
       botName: "Blackbird",
       brandColor: "#1FD1C2",
       accentColor: "#149B91",
       welcomeMessage: "Hey there! 👋 I'm Blackbird — how can I help you grow your business today?",
       allowHTMLInResponses: true,
       darkMode: true,
-      launcherVariant: "icon-text",
-      launcherText: "Chat with Blackbird",
+      launcherVariant: "icon",
       placeholder: "Ask me anything...",
       position: "right",
+      zIndex: 999990,
     });
+
+    // Hide default launcher via shadow DOM (keeping custom logo)
+    function customizeChatbot() {
+      for (const div of document.querySelectorAll('body > div')) {
+        if (div.shadowRoot) {
+          const s = document.createElement('style');
+          s.textContent = 'button { display:none!important; }';
+          div.shadowRoot.appendChild(s);
+          return true;
+        }
+      }
+      return false;
+    }
+    if (!customizeChatbot()) {
+      const obs = new MutationObserver(() => { if (customizeChatbot()) obs.disconnect(); });
+      obs.observe(document.body, { childList: true });
+      setTimeout(() => obs.disconnect(), 8000);
+    }
+
+    // Custom launcher with Blackbird logo + MagicUI pulse
+    const launcher = document.createElement('div');
+    launcher.id = 'bb-launcher';
+    launcher.innerHTML = `
+      <div id="bb-launcher-ping"></div>
+      <button id="bb-launcher-btn" aria-label="Chat with Blackbird">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1500" width="30" height="30">
+          <path fill="#0B0D10" fill-rule="nonzero" d="M1226.628906 1264.457031C1203.074219 1256.933594 1178.707031 1251.757812 1154.679688 1245.6875C1110.136719 1234.574219 1064.136719 1227.050781 1029.378906 1192.59375C984.320312 1147.875 939.089844 1103.289062 893.777344 1058.785156C885.011719 1050.148438 886.292969 1045.445312 898.136719 1042.328125C913.269531 1038.4375 928.273438 1033.945312 943.324219 1029.542969C998.34375 1013.339844 1051.996094 994.488281 1097.351562 957.507812C1266.941406 819.253906 1306.230469 565.320312 1229.023438 411.375C1223.335938 400.046875 1217.90625 388.675781 1212.523438 377.175781C1197.6875 356.910156 1201.492188 345.070312 1168.148438 291.886719C1141.171875 248.796875 1116.761719 210.746094 1071.148438 185.652344C1044.46875 170.949219 1018.949219 165.347656 1000.78125 162.996094C999.582031 162.824219 998.429688 162.652344 997.273438 162.527344C888.21875 149.914062 790.535156 202.15625 749.835938 301.335938C732.691406 343.230469 707.511719 371.703125 672.714844 396.710938C644.371094 417.0625 618.164062 440.53125 591.488281 463.101562C585.035156 468.617188 576.097656 472.894531 574.644531 483.621094C587.085938 486.617188 596.320312 479.21875 606.238281 475.328125C652.449219 457.160156 698.277344 438.050781 746.800781 426.082031C787.285156 416.078125 818.578125 430.613281 847.050781 457.332031C857.738281 467.335938 858.761719 473.320312 844.65625 481.613281C773.175781 523.550781 715.59375 581.90625 659.203125 641.5C577.550781 727.769531 521.035156 830.113281 466.273438 933.570312C407.707031 1058.484375 349.265625 1183.1875 290.742188 1307.847656C285.054688 1318.964844 277.488281 1331.617188 290.355469 1340.464844C304.25 1350.042969 316.902344 1342.175781 326.609375 1331.019531C331.910156 1324.820312 336.226562 1317.550781 340.03125 1310.242188C351.316406 1288.910156 365.9375 1270.527344 383.167969 1253.382812C470.25 1166.558594 576.867188 1118.550781 695.628906 1094.140625C704.648438 1092.300781 713.414062 1089.351562 722.304688 1094.738281C773.007812 1125.644531 823.410156 1157.066406 870.902344 1196.011719C834.351562 1199.390625 798.1875 1198.621094 761.976562 1199.5625C710.546875 1200.972656 658.605469 1199.089844 608.375 1213.285156C592.601562 1217.730469 574.816406 1220.296875 563.316406 1239.148438C810.371094 1214.738281 1050.625 1227.304688 1288.019531 1318.921875C1271.558594 1288.910156 1252.023438 1272.492188 1226.714844 1264.371094Z"/>
+        </svg>
+      </button>`;
+    document.body.appendChild(launcher);
+    document.getElementById('bb-launcher-btn').addEventListener('click', () => chatbox.toggle());
   </script>
 
 </body>
