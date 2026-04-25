@@ -3520,6 +3520,7 @@
       align-items: center;
       justify-content: center;
     }
+
     /* MagicUI PulsatingButton style: bg-inherit div that scales 2x and fades */
     #bb-launcher-ping {
       position: absolute;
@@ -3529,9 +3530,16 @@
       opacity: 0.75;
       animation: bb-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
     }
+
     @keyframes bb-ping {
-      75%, 100% { transform: scale(2); opacity: 0; }
+
+      75%,
+      100% {
+        transform: scale(2);
+        opacity: 0;
+      }
     }
+
     #bb-launcher-btn {
       position: relative;
       z-index: 1;
@@ -3547,6 +3555,7 @@
       box-shadow: 0 4px 20px rgba(31, 209, 194, 0.4);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     #bb-launcher-btn:hover {
       transform: scale(1.1);
       box-shadow: 0 6px 28px rgba(31, 209, 194, 0.6);
@@ -3573,7 +3582,7 @@
       for (const div of document.querySelectorAll('body > div')) {
         if (div.shadowRoot) {
           const s = document.createElement('style');
-          s.textContent = 'button { display:none!important; }';
+          s.textContent = '.bc-launcher { display:none!important; }';
           div.shadowRoot.appendChild(s);
           return true;
         }

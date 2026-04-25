@@ -142,13 +142,15 @@
       .bc-typing { font-size: 12px; opacity: 0.75; animation: bc-pulse 1.2s ease-in-out infinite; }
 
       /* Input */
-      .bc-input { border-top: 1px solid ${options.darkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"}; padding: 12px 14px; background: ${options.darkMode ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0.7)"}; display: flex; }
-      .bc-input-wrapper { display: flex; align-items: center; background: ${options.darkMode ? "rgba(255,255,255,0.05)" : "#ffffff"}; border: 1px solid ${options.darkMode ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.12)"}; border-radius: 24px; padding: 4px 6px 4px 14px; transition: border-color 150ms ease, box-shadow 150ms ease; flex: 1 1 auto; }
-      .bc-input-wrapper:focus-within { border-color: ${options.brandColor}; box-shadow: 0 0 0 3px rgba(31, 209, 194, 0.15); }
-      .bc-input input[type="text"] { flex: 1 1 auto; border: none; background: transparent; color: inherit; outline: none; padding: 8px 0; font-size: 14px; }
-      .bc-input button { border: none; background: ${options.brandColor}; color: #000; padding: 0; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 200ms ease; margin-left: 8px; opacity: 1; transform: scale(1); }
-      .bc-input input:placeholder-shown + button { opacity: 0.3; pointer-events: none; background: ${options.darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"}; color: ${options.darkMode ? "#fff" : "#000"}; }
-      .bc-input button:hover { filter: brightness(1.1); transform: scale(1.05); }
+      .bc-input { position: relative; border-top: 1px solid ${options.darkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"}; padding: 10px; display: block; background: ${options.darkMode ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0.7)"}; }
+      .bc-input input[type="text"] { width: 100%; border-radius: 20px; border: 1px solid ${options.darkMode ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.12)"}; padding: 12px 45px 12px 14px; background: ${options.darkMode ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.6)"}; color: inherit; outline: none; transition: border-color 150ms ease, box-shadow 150ms ease, padding-right 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275); font-size: 14px; box-sizing: border-box; }
+      .bc-input input[type="text"]:placeholder-shown { padding-right: 16px; }
+      .bc-input input[type="text"]:focus { border-color: ${options.accentColor}; box-shadow: 0 0 0 3px rgba(31, 209, 194, 0.15); }
+      .bc-input button { position: absolute; right: 16px; top: 50%; transform: translateY(-50%) scale(1); border: none; background: ${options.brandColor}; color: #000; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275); padding: 0; opacity: 1; pointer-events: auto; box-shadow: 0 2px 8px rgba(31, 209, 194, 0.3); }
+      .bc-input input:placeholder-shown + button { opacity: 0; transform: translateY(-50%) scale(0.5); pointer-events: none; }
+      .bc-input button:hover { filter: brightness(1.1); transform: translateY(-50%) scale(1.08); }
+      .bc-input button:active { transform: translateY(-50%) scale(0.95); box-shadow: none; }
+      .bc-input button svg { width: 14px; height: 14px; flex-shrink: 0; stroke-width: 2.5; margin-left: -1px; }
 
       /* Footer */
       .bc-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; opacity: 0.7; }
@@ -242,10 +244,8 @@
       const inputBar = document.createElement("form");
       inputBar.className = "bc-input";
       inputBar.innerHTML = `
-        <div class="bc-input-wrapper">
           <input type="text" aria-label="Message input" placeholder="${options.placeholder}">
-          <button type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
-        </div>
+        <button type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
       `;
 
       panel.appendChild(header);
